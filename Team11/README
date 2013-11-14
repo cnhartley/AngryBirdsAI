@@ -1,0 +1,52 @@
+Angry Birds AI
+CPE 480 - Artificial Intelligence
+Group Project - Team 11
+===============================================================================
+
+Team Member(s):
+---------------
+Chris N. Hartley (cnhartle@calpoly.edu)
+Brent Williams (brent.robert.williams@gmail.com)
+Alex Bozarth (ajbando@gmail.com)
+Taylor Nesheim (tnesheim@calpoly.edu)
+
+
+Usage and Implementations:
+--------------------------
+To use this distribution for the Angry Birds AI agent to play Angry Birds 
+through the Google Chrome extensions provided by AIBirds.org, use the jar file
+team11.jar to load and execute your implementation of the Team11Agent class.
+The Team11Agent class is found in the team11.core.agent package.
+
+Note: Your implementation of the agent must override the doTurn(Vision) method.
+ 
+From a command prompt, type the following;
+
+ %> java -jar team11.jar -d -a [path to your agent] -l [path to your log file]
+
+This turns ON debugging with the "-d", or "--debug", parameter, loads the
+specified agent with the "-a", or "--agent" parameter and sets the log file to
+be used with the "-l", or "--log" parameter.
+
+Example:
+[file system]
+    root_folder
+      +-- team11
+      |     +-- agent
+      |           +-- MyAgent.class          // Must extend the Team11Agent!
+      +-- team11.jar
+      +-- log.txt
+[command prompt]
+%root_folder> java -jar team11.jar -d -a team11\agent\MyAgent.class -l log.txt
+
+Options for team11.jar:
+-----------------------
+  -a  --agent   Required to specify your implementation of the agent which must
+                extend the team11.core.agent.Team11Agent.
+  -d  --debug   [optional] Sets the debugging for the agent to print out all 
+                debugging information when calling the internal debug(String) 
+                method. Default the debugging is set to false; not to print.
+  -h  --help    [optional] If present, all other parameters are ignored and the
+                usage for the jar file is printed to standard output.
+  -l  --log     [optional] Sets the log file to be appended to when calling the
+                internal log(String) method. Default prints to System.out.
