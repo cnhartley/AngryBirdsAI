@@ -19,34 +19,62 @@ team11.jar to load and execute your implementation of the Team11Agent class.
 The Team11Agent class is found in the team11.core.agent package.
 
 Note: Your implementation of the agent must override the doTurn(Vision) method.
- 
-From a command prompt, type the following;
 
- %> java -jar team11.jar -d -a [path to your agent] -l [path to your log file]
+Compiling:
+----------
+In order to compile an implementation with this jar file, use the follow:
 
-This turns ON debugging with the "-d", or "--debug", parameter, loads the
-specified agent with the "-a", or "--agent" parameter and sets the log file to
-be used with the "-l", or "--log" parameter.
+%> javac -classpath team11.jar [theAgent.java]
+
+Executing:
+----------
+To execute an implementation of this jar file, use the following:
+
+%> java -jar team11.jar -d -a [theAgent.class] -l log.txt -s
+
+As a side note; the jar file is an executable jar, thus not requiring the java 
+-jar command. However, if running it in this manner the debug output and error 
+output will not be displayed in the terminal and instead recorded in the 
+systems logs.
+
+%> team11.jar -a [theAgent.class] -l log.txt -s
+
 
 Example:
 [file system]
-    root_folder
+    folder
       +-- team11
       |     +-- agent
       |           +-- MyAgent.class          // Must extend the Team11Agent!
       +-- team11.jar
       +-- log.txt
 [command prompt]
-%root_folder> java -jar team11.jar -d -a team11\agent\MyAgent.class -l log.txt
+%folder> java -jar team11.jar -d -a team11\agent\MyAgent.class -l log.txt -s
 
-Options for team11.jar:
------------------------
-  -a  --agent   Required to specify your implementation of the agent which must
-                extend the team11.core.agent.Team11Agent.
-  -d  --debug   [optional] Sets the debugging for the agent to print out all 
-                debugging information when calling the internal debug(String) 
-                method. Default the debugging is set to false; not to print.
-  -h  --help    [optional] If present, all other parameters are ignored and the
-                usage for the jar file is printed to standard output.
-  -l  --log     [optional] Sets the log file to be appended to when calling the
-                internal log(String) method. Default prints to System.out.
+This turns ON debugging with the "-d", or "--debug", parameter, loads the
+specified agent with the "-a", or "--agent" parameter and sets the log file to
+be used with the "-l", or "--log" parameter. The "-s", or "--show" parameter 
+displays the debugging screen capture frame.
+
+Command-Line Parameters:
+------------------------
+This application requires command-line parameters to load and initialize the 
+various components to run an implementation of the AI agent. The list for 
+available command-line options and parameters follows:
+
+Option(s)	Function(s)
+-a --agent [path]	 Required to specify your implementation of the agent which 
+                   must extend the Team11Agent.
+-d --debug	       [optional] Sets the debugging for the agent to print out all
+                   debugging information when calling the internal
+                   team11.core.agent.Team11Agent#debug(String) Team11Agent#debug
+                   (String) method. Default the debugging is set to false; not
+                   to print.
+-h --help	       [optional] If present, all other parameters are ignored and 
+                   the usage for the jar file is printed to standard output, 
+                   System.out.
+-l --log [path]	 [optional] Sets the log file to be appended to when calling 
+                   the internal team11.core.agent.Team11Agent#log(String) 
+                   Team11Agent#log(String) method. Default prints to System.out.
+-s --show	       [optional] Shows the debugging screen capture frame.
+
